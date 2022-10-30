@@ -3,11 +3,11 @@ from .forms import registeration,SignIn,person_list
 from django.contrib.auth import login,authenticate,logout
 from .models import register1,todo
 from django.contrib import messages
-from django.views.decorators.http import require_http_methods
+from .decoraters import authentication_not_required
 # Create your views here.
 
 #This Function checks login details and authenticates and let user login or threow error based on details
-@require_http_methods(["GET","POST"])
+@authentication_not_required
 def Sign_IN(request):
     if request.method=="POST":
         username=request.POST['username']
