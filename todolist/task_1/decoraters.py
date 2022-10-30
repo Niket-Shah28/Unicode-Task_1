@@ -1,6 +1,5 @@
 import functools
 from django.shortcuts import redirect
-from django.contrib import messages
 
 def authentication_not_required(view_func, redirect_url="display"):
     @functools.wraps(view_func)
