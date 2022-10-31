@@ -12,11 +12,11 @@
     {% endfor %}
     <p style="text-align:center;font-size:30px;"><u>LOGIN</u></p>
     <div style="display:inline-block;margin-left:410px;">
-        <form action="" method="POST">
+        <form action="" method="POST" style="margin-left:85px;">
             {% csrf_token %}
-            {{signin}}
+            {{signin.as_p}}
             <p><button type="submit" class="d-inline">LOG IN</button></form></p>
-        <form action="{% url "register" %}" method="GET">
+        <form action="{% url "register" %}" method="GET" style="margin-left:85px;">
             <button type="submit" class="d-inline">REGISTER</button>
         </form>
     </div>
