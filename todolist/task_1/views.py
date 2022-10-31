@@ -1,13 +1,13 @@
-from django.shortcuts import render,HttpResponse,redirect
+from django.shortcuts import render,redirect
 from .forms import registeration,SignIn,person_list
 from django.contrib.auth import login,authenticate,logout
 from .models import register1,todo
 from django.contrib import messages
-from .decoraters import authentication_not_required
+from .decoraters import signin_required
 # Create your views here.
 
 #This Function checks login details and authenticates and let user login or threow error based on details
-@authentication_not_required
+@signin_required
 def Sign_IN(request):
     if request.method=="POST":
         username=request.POST['username']
