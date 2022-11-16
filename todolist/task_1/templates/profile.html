@@ -13,6 +13,9 @@
     <p><strong><u>Last Name</u>:-{{profile.last_name}}</strong></p>
     <p><strong><u>Profile Pic</u>:-</strong></p><img src="{{profile.profile_picture.url}}" style="height:100px;width:100px;">
     <p><strong><u>Email</u>:-{{profile.email}}</strong></p>
+    <form action="{% url "editprofile" profile.id %}">
+        <button>EDIT PROFILE</button>
+    </form>
     <form action="{% url "display"%}">
         <p><button>BACK TO HOME</button></p>
     </form>

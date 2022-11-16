@@ -44,6 +44,7 @@ def display_page(request):
         return redirect('list')
     else:
         Name2=request.user
+        print(Name2)
         obj=todo.objects.filter(name=Name2)
         return render(request,'welcome.html',{'Name':Name2,'obj':obj})
 
@@ -107,3 +108,14 @@ def viewprofile(request):
     profile_data=register1.objects.get(username=name)
     return render(request,'profile.html',{'profile':profile_data})
 
+def editprofile(request,id):
+    if request.method=="POST":
+        pi=request.user
+        register=registeration(request.POST,request.FILES,instance=pi)
+        if register.is_valid():
+            register.save()
+            return redirect('login') 
+    else:
+        pm=register1.objects.get(pk=id)
+        register=registeration(instance=pm)
+        return render(request,'editprofile.html',{'update':register})
